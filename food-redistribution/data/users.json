@@ -4,5 +4,11 @@
     "email": "john@example.com",
     "password": "123456",
     "role": "donor"
+  },
+  {
+    "name": "vineet",
+    "email": "vk@gmail.com",
+    "password": "123456",
+    "role": "ngo"
   }
 ]
