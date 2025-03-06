@@ -3,6 +3,8 @@ const fs = require("fs");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
+const donorRoutes = require("./routes/donorRoutes");
+
 
 const app = express();
 const PORT = 5000;
@@ -10,6 +12,7 @@ const PORT = 5000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use("/donor", donorRoutes);
 
 // Ensure the data directory exists
 const dataDir = path.join(__dirname, "data");

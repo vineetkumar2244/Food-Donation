@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles.css"; // Ensure styles are applied
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -15,19 +16,39 @@ const Login = () => {
         const data = await response.json();
 
         if (response.ok) {
-            alert("Login Successful");
-            navigate("/dashboard");
+            alert("Login Successful!");
+
+            // Redirect based on user role
+            if (data.user.role === "donor") {
+                navigate("/donor-dashboard");
+            } else {
+                alert("Only donors can log in right now!");
+            }
         } else {
             alert(data.message);
         }
     };
 
     return (
-        <div className="auth">
-            <h2>Login</h2>
-            <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-            <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={handleLogin}>Login</button>
+        <div className="auth-container">
+            <div className="auth-box">
+                <h2>Login</h2>
+                <input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+                <button onClick={handleLogin}>Login</button>
+            </div>
         </div>
     );
 };

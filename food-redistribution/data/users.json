@@ -10,5 +10,17 @@
     "email": "vk@gmail.com",
     "password": "123456",
     "role": "ngo"
+  },
+  {
+    "name": "vin",
+    "email": "vin@gmail.com",
+    "password": "123456",
+    "role": "ngo"
+  },
+  {
+    "name": "don",
+    "email": "don@gmail.com",
+    "password": "123456",
+    "role": "donor"
   }
 ]
